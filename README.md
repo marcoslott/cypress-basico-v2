@@ -1,29 +1,50 @@
-# Testes automatizados com Cypress - Básico
+# cypress-basico-v2
 
-👋 Seja bem-vindo(a)!
+Projeto desenvolvido no curso básico de Cypress da Escola TAT.
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai adorar este curso. ❤️
+## Pré-requisitos
 
-## O que você vai aprender
+Antes de começar, garanta que os seguintes sistemas estejam instalados em seu computador.
 
-Durante o curso de testes automatizados com Cypress (básico), você vai aprender:
+- [git](https://git-scm.com/) (estou usando a versão `2.37.2`)
+- [Node.js](https://nodejs.org/en/) (estou usando a versão `v16.16.0`)
+- npm (estou usando a versão `8.18.0`)
+- [Google Chrome](https://www.google.com/intl/pt_br/chrome/) (estou usando a versão `98.0.4758.80 (Official Build) (x86_64)`)
+- [Visual Studio Code](https://code.visualstudio.com/) (estou usando a versão `1.70.2`) ou alguma outra IDE de sua preferência
 
-- Como configurar um projeto Cypress do zero
-- Como visitar páginas locais e remotas
-- Como lidar com os elementos mais comuns encontrados em aplicações web
-- Como testar _upload_ de arquivos
-- Como realizar as mais diversas verificações de resultados esperados
-- Como criar comandos customizados
-- Como lidar com links que abrem em outra aba do navegador
-- Como rodar testes simulando as dimensões de um dispositivo móvel
-- Como resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents)
-- Como executar os testes em um _pipeline_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
-- Como criar uma documentação mínima para seu projeto de testes automatizados
+## Instalação e inicialização do [Cypress](https://cypress.io) 🌲
 
-## Vamos começar?
+1. Na raiz do projeto, execute o comando `npm install cypress@10.4.0 --save-dev` (ou `npm i cypress@10.4.0 -D` para a versão curta)
+2. Logo após, execute o comando `npx cypress open` para abrir o Cypress pela primeira vez
+3. Por fim, com o _Test Runner_ aberto, delete os exemplos criados automaticamente, crie um arquivo chamado `CAC-TAT.spec.js` e feche o _Test Runner_.
 
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
+## Configurações extra
 
-___
+1. Atualize o arquivo `cypress.config` conforme abaixo.
 
-Este é mais um curso da [**Escola Talking About Testing**](https://udemy.com/user/walmyr).
+```json
+const { defineConfig } = require("cypress");
+
+module.exports = defineConfig({
+  viewportWidth: 1000,
+  viewportHeight: 660,
+  e2e: {
+    setupNodeEvents(on, config) {
+      // implement node event listeners here
+    },
+  },
+});
+```
+> 👨‍🏫 Com isso, estamos "dizendo ao Cypress" que:
+>
+> - Iremos sobrescrever a altura e largura do [_viewport_ padrão do Cypress](https://docs.cypress.io/api/commands/viewport#Defaults)
+
+## Testes
+
+Executar o comando `npm test` (ou `npm t` para a versão curta) para rodar os testes no modo headless.
+
+Ou, executar o comando `npm run cy:open` para abrir o Cypress no modo interativo.
+
+## Apoie este projeto
+
+Se você deseja apoiar este projeto, deixe uma ⭐.
