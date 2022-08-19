@@ -22,7 +22,7 @@ Antes de começar, garanta que os seguintes sistemas estejam instalados em seu c
 
 1. Atualize o arquivo `cypress.config` conforme abaixo.
 
-```json
+```js
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
